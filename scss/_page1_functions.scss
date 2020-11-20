@@ -1,0 +1,29 @@
+
+$base-font-size: 1.0rem;
+$heading-scale: 0.2;
+
+@function calculate-header-size($base, $scale, $level, $max-level) {
+  @if type-of($base) == string {
+    $base: str-slice($base, 1, 3);
+  }
+  @return $base + $scale * ($max-level - $level);
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: calculate-header-size($base-font-size, $heading-scale, $i, 6);
+  }
+}
+
+@mixin box-shadow() {
+  box-shadow: 7px 9px 11px $box-shadow-color,
+    10px 15px 20px 5px rgba(42, 42, 42, 0.5);
+}
+
+@mixin box-border-radius() {
+  border-radius: 5px;
+}
+
+@mixin gallery-thumb-border-radius() {
+  border-radius: 5px;
+}

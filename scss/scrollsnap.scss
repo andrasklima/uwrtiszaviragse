@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-snap-type: proximity;
+  overflow-y: scroll;
+  scroll-snap-points-y: repeat(450px);
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+
+  a,
+  a:visited,
+  a:active {
+    color: whitesmoke;
+  }
+  
+  background-color: #0bc4d6;
+}
+
+.title {
+  text-align: center;
+  letter-spacing: 0.5rem;
+  line-height: 5rem;
+  font-size: 2em;
+  background-color: rgba(245, 245, 245, 0.61);
+}
+
+h1,
+h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
+section {
+  padding: 7em;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+
+  &:nth-of-type(1) {
+    // background-image: url("../img/hero.jpg");
+    background-image: linear-gradient(
+        to bottom left,
+        rgb(255, 255, 255),
+        75%,
+        rgb(55, 141, 223)
+      ),
+      url("../img/hero.jpg");
+    background-size: cover;
+    background-blend-mode: saturation;
+  }
+  &:nth-of-type(2) {
+    background: rgb(148, 241, 241);
+  }
+  &:nth-of-type(3) {
+    background: rgb(127, 219, 255);
+  }
+  &:nth-of-type(4) {
+    background-color: #0bc4d6;
+  }
+  i {
+    width: 100px;
+    animation: bounce 1s infinite alternate;
+    -webkit-animation: bounce 1s infinite alternate;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.5s;
+  }
+  i:hover {
+    color: rgba(76, 201, 240, 1);
+    filter: drop-shadow(0px 0px 30px #4cc9f0);
+  }
+}
+
+.fa-chevron-down:hover {
+  filter: drop-shadow(5px 5px 30px #4cc9f0);
+  text-shadow: 0px 0px 20px rgba(255, 165, 0, 0.75);
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+@-webkit-keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}

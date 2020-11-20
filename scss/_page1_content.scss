@@ -1,0 +1,145 @@
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  width: $content-width;
+}
+
+.content-box {
+  margin: 15px;
+  text-align: center;
+  min-width: 200px;
+  padding: 1em;
+  color: $box-text-color;
+  background: $box-background-color;
+  @include box-shadow();
+  @include box-border-radius();
+
+  flex: 20% 1;
+  &.size1 {
+    flex: 30% 1;
+  }
+  &.size2 {
+    flex: 40% 1;
+  }
+  &.size3 {
+    flex: 50% 1;
+  }
+  &.size-full {
+    flex: 100% 1;
+  }
+
+  &>img {
+    width: 100%;
+  }
+}
+
+h3 {
+  margin-bottom: 1rem;
+}
+
+h6 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.cta-text p {
+  margin-bottom: 1rem;
+}
+
+.content-text-1 {
+  width: fit-content;
+}
+
+ul.checkmark {
+  padding-inline-start: 0;
+  padding: 2.5rem 0;
+
+  li {
+    position: relative;
+    margin-bottom: 1em;
+    padding: 0.25em 0 0 2.5em;
+    list-style-type: none;
+
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 0.5em;
+      top: 50%;
+      margin-top: -0.5em;
+      border: solid 0.8em $checkmark-background-color;
+      border-radius: 0.8em;
+    }
+
+    &:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      width: 0.3em;
+      height: 0.6em;
+      left: 1em;
+      top: 50%;
+      margin-top: -0.2em;
+      border: solid $checkmark-color;
+      border-width: 0 0.2em 0.2em 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.circle-highlight {
+  position: relative;
+  white-space: nowrap;
+}
+
+.circle-highlight:before {
+  content: "";
+  z-index: 1;
+  left: -0.5em;
+  top: -0.1em;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $circle-highlight-color;
+  position: absolute;
+  border-right-color: transparent;
+  width: 100%;
+  height: 1em;
+  transform: rotate(2deg);
+  opacity: 0.7;
+  border-radius: 50%;
+  padding: 0.1em 0.25em;
+}
+
+.circle-highlight:after {
+  content: "";
+  z-index: 1;
+  left: -0.5em;
+  top: 0.1em;
+  padding: 0.1em 0.25em;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $circle-highlight-color;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  position: absolute;
+  width: 100%;
+  height: 1em;
+  transform: rotate(-1deg);
+  opacity: 0.7;
+  border-radius: 50%;
+  // box-shadow: 2px 3px 2px  3px $circle-highlight-color;
+}
+
+.highlight {
+  filter: drop-shadow(2px 4px 6px $text-shadow-color);
+}
+
+.important-text {
+  font-size: 120%;
+  font-weight: bolder;
+  line-height: 2.5rem;
+}

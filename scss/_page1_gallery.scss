@@ -1,0 +1,118 @@
+
+.content-gallery {
+  min-width: 180px;
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+
+  .gallery-images {
+    grid-column: 1 / 6;
+    grid-row: 2;
+    position: relative;
+    min-height: 200px;
+    height: 280px;
+    overflow: hidden;
+  }
+
+  .gallery-image {
+    background-size: contain;
+    background-color: $gallery-image-background-color;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    height: inherit;
+    width: 100%;
+  }
+
+  .gallery-thumb {
+    background-size: contain;
+    height: 50px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @include gallery-thumb-border-radius();
+  }
+
+  .gallery-image:target {
+    z-index: 1;
+    margin-top: 500px;
+  }
+
+  // ilyen lett
+  $image-count: 5;
+  @for $i from 1 through $image-count {
+    #gallery-thumb-#{$i}:hover {
+      ~ .gallery-images #gallery-image-#{$i} {
+        z-index: 2;
+        position: absolute;
+        transform: translate(0, 100%);
+        top: -100%;
+        transition: 1s ease-out;
+      }
+    }
+
+    #gallery-thumb-#{$i} > div,
+    #gallery-image-#{$i} {
+      background-image: url(../img/img#{$i}.jpg);
+    }
+  }
+
+  // ilyen volt
+  /* 
+  #gallery-thumb-1:hover {
+    ~ .gallery-images #gallery-image-1 {
+      z-index: 2;
+    }
+  }
+
+  #gallery-thumb-2:hover {
+    ~ .gallery-images #gallery-image-2 {
+      z-index: 2;
+    }
+  }
+
+  #gallery-thumb-3:hover {
+    ~ .gallery-images #gallery-image-3 {
+      z-index: 2;
+    }
+  }
+
+  #gallery-thumb-4:hover {
+    ~ .gallery-images #gallery-image-4 {
+      z-index: 2;
+    }
+  }
+
+  #gallery-thumb-5:hover {
+    ~ .gallery-images #gallery-image-5 {
+      z-index: 2;
+    }
+  }
+
+  #gallery-thumb-1>div,
+  #gallery-image-1 {
+    background-image: url(../img/img1.jpg);
+  }
+  #gallery-thumb-2>div,
+  #gallery-image-2 {
+    background-image: url(../img/img2.jpg);
+  }
+  #gallery-thumb-3>div,
+  #gallery-image-3 {
+    background-image: url(../img/img3.jpg);
+  }
+  #gallery-thumb-4>div,
+  #gallery-image-4 {
+    background-image: url(../img/img4.jpg);
+  }
+  #gallery-thumb-5>div,
+  #gallery-image-5 {
+    background-image: url(../img/img5.jpg);
+  }
+ */
+}
